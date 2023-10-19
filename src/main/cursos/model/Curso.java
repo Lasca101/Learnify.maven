@@ -1,18 +1,16 @@
 package model;
 
-import java.awt.image.BufferedImage;
-
 public class Curso {
 	private int id_curso;
-    private float preco;
+    private double preco;
     private int id_usuario;
     private String categoria;
     private String nome;
     private String descricao;
-    private BufferedImage imagem;
-    private BufferedImage banner;
+    private byte[] imagem;
+    private byte[] banner;
     
-    public Curso(int id_curso, float preco, int id_usuario, String categoria, String nome, String descricao, BufferedImage imagem, BufferedImage banner) {
+    public Curso(int id_curso, double preco, int id_usuario, String categoria, String nome, String descricao, byte[] imagem, byte[] banner) {
 		this.id_curso = id_curso;
 		this.preco = preco;
 		this.id_usuario = id_usuario;
@@ -32,7 +30,7 @@ public class Curso {
 	public void setId_curso(int id_curso) {
 		this.id_curso = id_curso;
 	}
-	public float getPreco() {
+	public double getPreco() {
 		return preco;
 	}
 	public void setPreco(float preco) {
@@ -62,16 +60,16 @@ public class Curso {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public BufferedImage getImagem() {
+	public byte[] getImagem() {
 		return imagem;
 	}
-	public void setImagem(BufferedImage imagem) {
+	public void setImagem(byte[] imagem) {
 		this.imagem = imagem;
 	}
-	public BufferedImage getBanner() {
+	public byte[] getBanner() {
 		return banner;
 	}
-	public void setBanner(BufferedImage banner) {
+	public void setBanner(byte[] banner) {
 		this.banner = banner;
 	}
 }

@@ -64,20 +64,10 @@ public class CursoDAO {
 	             rs.beforeFirst();
 
 	             for(int i = 0; rs.next(); i++) {
-					// Retrieve the image data as a byte array
-					byte[] imagemData = rs.getBytes("imagem");
-					byte[] bannerData = rs.getBytes("banner");
-					// Create an input stream from the byte array
-					ByteArrayInputStream inputStreamImagem = new ByteArrayInputStream(imagemData);
-					ByteArrayInputStream inputStreamBanner = new ByteArrayInputStream(bannerData);
-					// Read the image data from the input stream and create a BufferedImage
-					BufferedImage imagem = ImageIO.read(inputStreamImagem);
-					BufferedImage banner = ImageIO.read(inputStreamBanner);
-					// Create the Curso object with the BufferedImage
 	                curso[i] = new Curso(rs.getInt("id_curso"), rs.getFloat("preco"), 
 	                		                  rs.getInt("id_usuario"), rs.getString("categoria"),
 												rs.getString("nome"), rs.getString("descricao"),
-												imagem, banner);
+												rs.getBytes("imagem"), rs.getBytes("banner"));
 	             }
 	          }
 	          st.close();

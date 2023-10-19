@@ -12,10 +12,9 @@ public class Aplicacao {
 	
     public static void main(String[] args) {
     	VelocityTemplateEngine engine = new VelocityTemplateEngine();
+        staticFiles.location("/public");
     	
         port(6789);
-        
-        staticFiles.location("/public");
         
         get("/home", (request, response) -> CursoService.mostrarCursos(request, response), engine);
 
