@@ -15,36 +15,36 @@ public class CursoService {
 
 	private static CursoDAO cursoDAO = new CursoDAO();
 
-	// public CursoService() {
-	// 	makeForm();
-	// }
+	public CursoService() {
+		makeForm();
+	}
 
 	public static ModelAndView mostrarCursos(Request req, Response res) {
-		insertTeste(req, res);
+		// insertTeste(req, res);
 		HashMap<String, String> model = new HashMap<>();
-		// model.put("htmlCursos", makeForm());
+		model.put("htmlCursos", makeForm());
 
 		return new ModelAndView(model, "/view/home.vm");
 	}
 
-	// public static String makeForm() {
-	// 	// Aqui, você pode criar a lógica para obter os clientes do banco de dados
-	// 	// e preencher a tabela no HTML com os dados dos clientes.
-	// 	Curso[] cursos = cursoDAO.getCurso();
-	// 	String htmlCursos = "";
+	public static String makeForm() {
+		// Aqui, você pode criar a lógica para obter os clientes do banco de dados
+		// e preencher a tabela no HTML com os dados dos clientes.
+		Curso[] cursos = cursoDAO.getCurso();
+		String htmlCursos = "";
 
-	// 	for (Curso curso : cursos) {
-	// 		String imagemBase64 = Base64.getEncoder().encodeToString(curso.getImagem());
+		for (Curso curso : cursos) {
+			String imagemBase64 = Base64.getEncoder().encodeToString(curso.getImagem());
 
-	// 		htmlCursos += "<div class=\"col-md-6 curso\" data-title=\"" + curso.getNome() + "\" data-category=\"" + curso.getCategoria() + "\">\n" +
-	// 		"    <a href=\"/pagina-curso/pagina_curso.html?id=" + curso.getId_curso() + "\" class=\"ancora-cursos\"><img src=\"data:image/jpeg;base64," + imagemBase64 + "\" alt=\"curso\">\n" +
-	// 		"    <h3>" + curso.getNome() + "</h3></a>\n" +
-	// 		"    <p class=\"categoria-curso\">Categoria: " + curso.getCategoria() + "</p>\n" +
-	// 		"</div>";
-	// 	}
+			htmlCursos += "<div class=\"col-md-6 curso\" data-title=\"" + curso.getNome() + "\" data-category=\"" + curso.getCategoria() + "\">\n" +
+			"    <a href=\"/pagina-curso/pagina_curso.html?id=" + curso.getId_curso() + "\" class=\"ancora-cursos\"><img src=\"data:image/jpeg;base64," + imagemBase64 + "\" alt=\"curso\">\n" +
+			"    <h3>" + curso.getNome() + "</h3></a>\n" +
+			"    <p class=\"categoria-curso\">Categoria: " + curso.getCategoria() + "</p>\n" +
+			"</div>";
+		}
 
-	// 	return htmlCursos;
-	// }
+		return htmlCursos;
+	}
 
 	// public Object atualizaClientes(Request request, Response response) {
 	// makeForm(); // Atualiza a tabela de clientes
@@ -100,39 +100,39 @@ public class CursoService {
 	// return mostrarClientes(request, response);
 	// }
 
-	public static void insertTeste(Request request, Response response) {
-		File imagemx = new File("/home/tiago/Documentos/img_curso.jpg");
+	// public static void insertTeste(Request request, Response response) {
+	// 	File imagemx = new File("/home/tiago/Documentos/img_curso.jpg");
 
-		try {
-			FileInputStream inputStream = new FileInputStream(imagemx);
-			byte[] imagemBytes = new byte[(int) imagemx.length()];
+	// 	try {
+	// 		FileInputStream inputStream = new FileInputStream(imagemx);
+	// 		byte[] imagemBytes = new byte[(int) imagemx.length()];
 
-			inputStream.read(imagemBytes);
-			inputStream.close();
+	// 		inputStream.read(imagemBytes);
+	// 		inputStream.close();
 
-			// Agora, a variável imagemBytes contém os bytes da imagem
+	// 		// Agora, a variável imagemBytes contém os bytes da imagem
 
-			int id_curso = 0;
-			double preco = 120.99;
-			int id_usuario = 0;
-			String categoria = "categoria-teste";
-			String nome = "nome-teste";
-			String descricao = "descricao-teste";
-			byte[] imagem = imagemBytes;
-			byte[] banner = imagemBytes;
+	// 		int id_curso = 0;
+	// 		double preco = 120.99;
+	// 		int id_usuario = 0;
+	// 		String categoria = "categoria-teste";
+	// 		String nome = "nome-teste";
+	// 		String descricao = "descricao-teste";
+	// 		byte[] imagem = imagemBytes;
+	// 		byte[] banner = imagemBytes;
 
-			Curso curso = new Curso(id_curso, preco, id_usuario, categoria, nome, descricao, imagem, banner);
-			if (cursoDAO.inserirCurso(curso) == true) {
-				response.status(201); // 201 Created
-			} else {
-				response.status(404); // 404 Not found
-			}
+	// 		Curso curso = new Curso(id_curso, preco, id_usuario, categoria, nome, descricao, imagem, banner);
+	// 		if (cursoDAO.inserirCurso(curso) == true) {
+	// 			response.status(201); // 201 Created
+	// 		} else {
+	// 			response.status(404); // 404 Not found
+	// 		}
 
 			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		response.redirect("/");
+	// 	} catch (IOException e) {
+	// 		e.printStackTrace();
+	// 	}
+	// 	response.redirect("/");
 
-	}
+	// }
 }
