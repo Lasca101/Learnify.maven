@@ -17,36 +17,41 @@ public class CursoService {
 	private static CursoDAO cursoDAO = new CursoDAO();
 
 	public CursoService() {
-		makeForm();
 	}
 
 	public static ModelAndView mostrarCursos(Request req, Response res) {
-//		 insertTeste(req, res);
-		HashMap<String, String> model = new HashMap<>();
-		model.put("htmlCursos", makeForm());
+//		  insertTeste(req, res);
+		HashMap<String, Object> model = new HashMap<>();
+		Curso[] cursos = cursoDAO.getCursos();
+
+		try {
+			model.put("cursos", cursos);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		return new ModelAndView(model, "/view/home.vm");
 	}
 
-	public static String makeForm() {
-		// Aqui, você pode criar a lógica para obter os clientes do banco de dados
-		// e preencher a tabela no HTML com os dados dos clientes.
-		Curso[] cursos = cursoDAO.getCurso();
-		String htmlCursos = "";
+	// public static String makeForm() {
+	// 	// Aqui, você pode criar a lógica para obter os clientes do banco de dados
+	// 	// e preencher a tabela no HTML com os dados dos clientes.
+	// 	Curso[] cursos = cursoDAO.getCursos();
+	// 	String htmlCursos = "";
 
-		for (Curso curso : cursos) {
-			byte[] imagemBytes = curso.getImagem();
-			String imagemBase64 = Base64.getEncoder().encodeToString(imagemBytes);
+	// 	for (Curso curso : cursos) {
+	// 		byte[] imagemBytes = curso.getImagem();
+	// 		String imagemBase64 = Base64.getEncoder().encodeToString(imagemBytes);
 
-			htmlCursos += "<div class=\"col-md-6 curso\" data-title=\"" + curso.getNome() + "\" data-category=\"" + curso.getCategoria() + "\">\n" +
-			"    <a href=\"/pagina-curso/pagina_curso.html?id=" + curso.getId_curso() + "\" class=\"ancora-cursos\"><img src=\"data:image/jpeg;base64," + imagemBase64 + "\" alt=\"curso\">\n" +
-			"    <h3>" + curso.getNome() + "</h3></a>\n" +
-			"    <p class=\"categoria-curso\">Categoria: " + curso.getCategoria() + "</p>\n" +
-			"</div>";
-		}
+	// 		htmlCursos += "<div class=\"col-md-6 curso\" data-title=\"" + curso.getNome() + "\" data-category=\"" + curso.getCategoria() + "\">\n" +
+	// 		"    <a href=\"/pagina-curso/pagina_curso.html?id=" + curso.getId_curso() + "\" class=\"ancora-cursos\"><img src=\"data:image/jpeg;base64," + imagemBase64 + "\" alt=\"curso\">\n" +
+	// 		"    <h3>" + curso.getNome() + "</h3></a>\n" +
+	// 		"    <p class=\"categoria-curso\">Categoria: " + curso.getCategoria() + "</p>\n" +
+	// 		"</div>";
+	// 	}
 
-		return htmlCursos;
-	}
+	// 	return htmlCursos;
+	// }
 
 	// public Object atualizaClientes(Request request, Response response) {
 	// makeForm(); // Atualiza a tabela de clientes
@@ -107,23 +112,23 @@ public class CursoService {
 //
 //		try {
 //			FileInputStream inputStream = new FileInputStream(imagemx);
-//            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+//           ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 //
-//            // Lê os bytes da imagem e escreve no ByteArrayOutputStream
-//            int bytesRead;
-//            byte[] buffer = new byte[1024];
-//            while ((bytesRead = inputStream.read(buffer)) != -1) {
-//                outputStream.write(buffer, 0, bytesRead);
-//            }
+//           // Lê os bytes da imagem e escreve no ByteArrayOutputStream
+//           int bytesRead;
+//           byte[] buffer = new byte[1024];
+//           while ((bytesRead = inputStream.read(buffer)) != -1) {
+//               outputStream.write(buffer, 0, bytesRead);
+//           }
 //
-//            // Obtém o array de bytes da imagem
-//            byte[] imagemBytes = outputStream.toByteArray();
+//           // Obtém o array de bytes da imagem
+//           byte[] imagemBytes = outputStream.toByteArray();
 //
-//            // Agora, imagemBytes contém os bytes da imagem no formato BLOB
-//            
-//            // Fecha os streams
-//            inputStream.close();
-//            outputStream.close();
+//           // Agora, imagemBytes contém os bytes da imagem no formato BLOB
+//           
+//           // Fecha os streams
+//           inputStream.close();
+//           outputStream.close();
 //
 //			// Agora, a variável imagemBytes contém os bytes da imagem
 //

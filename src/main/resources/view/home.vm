@@ -61,7 +61,13 @@
 
       <div class="container">
         <div class="row" id="cursoContainer">
-          $htmlCursos
+          #foreach($curso in $cursos)
+            <div class="col-md-6 curso" data-title="$curso.getNome()" data-category="$curso.getCategoria()">
+              <a href="/pagina-curso/pagina_curso.html?id=$curso.getId_curso()" class="ancora-cursos"><img src="data:image/jpeg;base64,$curso.convertImagemBase64()" alt="curso">
+              <h3>$curso.getNome()</h3></a>
+              <p class="categoria-curso">Categoria: $curso.getCategoria()</p>
+            </div>
+          #end
         </div>
       </div>
     </main>

@@ -52,7 +52,7 @@ public class CursoDAO {
 	}
 	
 	
-	public Curso[] getCurso() {
+	public Curso[] getCursos() {
 		Curso[] curso = null;
 		
 		try {
@@ -80,12 +80,15 @@ public class CursoDAO {
 	public boolean inserirCurso(Curso curso) {
 		boolean status = false;
 		try {  
-			Statement st = conexao.createStatement();
-			st.executeUpdate("INSERT INTO cursos (id_curso, preco, id_usuario, categoria, nome, descricao, imagem, banner) "
-					       + "VALUES ("+curso.getId_curso()+ ", '" + curso.getPreco() + "', '"  
-					       + curso.getId_usuario() + "', '" + curso.getCategoria() + "', '"
-						   + curso.getNome() + "', '" + curso.getDescricao() + "', '"
-						   + curso.getImagem() + "', '" + curso.getBanner() + "');");
+			String query = "INSERT INTO cursos (id_curso, preco, id_usuario, categoria, nome, descricao, imagem, banner) "
+				       + "VALUES ("+curso.getId_curso()+ ", '" + curso.getPreco() + "', '"  
+				       + curso.getId_usuario() + "', '" + curso.getCategoria() + "', '"
+					   + curso.getNome() + "', '" + curso.getDescricao() + "', ?, ?);";
+			
+			PreparedStatement st = conexao.prepareStatement(query);
+			st.setBytes(1, curso.getImagem());
+			st.setBytes(2, curso.getBanner());
+			st.executeUpdate();
 			st.close();
 			status = true;
 		} catch (SQLException u) {  

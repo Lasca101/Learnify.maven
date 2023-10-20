@@ -72,4 +72,11 @@ public class Curso {
 	public void setBanner(byte[] banner) {
 		this.banner = banner;
 	}
+
+	public String convertImagemBase64() {
+		return java.util.Base64.getEncoder().encodeToString(this.imagem);
+	}
+	public String convertBannerBase64() {
+		return java.util.Base64.getEncoder().encodeToString(this.banner);
+	}
 }
