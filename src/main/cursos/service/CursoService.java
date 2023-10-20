@@ -1,5 +1,6 @@
 package service;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -20,7 +21,7 @@ public class CursoService {
 	}
 
 	public static ModelAndView mostrarCursos(Request req, Response res) {
-		// insertTeste(req, res);
+//		 insertTeste(req, res);
 		HashMap<String, String> model = new HashMap<>();
 		model.put("htmlCursos", makeForm());
 
@@ -34,7 +35,8 @@ public class CursoService {
 		String htmlCursos = "";
 
 		for (Curso curso : cursos) {
-			String imagemBase64 = Base64.getEncoder().encodeToString(curso.getImagem());
+			byte[] imagemBytes = curso.getImagem();
+			String imagemBase64 = Base64.getEncoder().encodeToString(imagemBytes);
 
 			htmlCursos += "<div class=\"col-md-6 curso\" data-title=\"" + curso.getNome() + "\" data-category=\"" + curso.getCategoria() + "\">\n" +
 			"    <a href=\"/pagina-curso/pagina_curso.html?id=" + curso.getId_curso() + "\" class=\"ancora-cursos\"><img src=\"data:image/jpeg;base64," + imagemBase64 + "\" alt=\"curso\">\n" +
@@ -100,39 +102,52 @@ public class CursoService {
 	// return mostrarClientes(request, response);
 	// }
 
-	// public static void insertTeste(Request request, Response response) {
-	// 	File imagemx = new File("/home/tiago/Documentos/img_curso.jpg");
-
-	// 	try {
-	// 		FileInputStream inputStream = new FileInputStream(imagemx);
-	// 		byte[] imagemBytes = new byte[(int) imagemx.length()];
-
-	// 		inputStream.read(imagemBytes);
-	// 		inputStream.close();
-
-	// 		// Agora, a variável imagemBytes contém os bytes da imagem
-
-	// 		int id_curso = 0;
-	// 		double preco = 120.99;
-	// 		int id_usuario = 0;
-	// 		String categoria = "categoria-teste";
-	// 		String nome = "nome-teste";
-	// 		String descricao = "descricao-teste";
-	// 		byte[] imagem = imagemBytes;
-	// 		byte[] banner = imagemBytes;
-
-	// 		Curso curso = new Curso(id_curso, preco, id_usuario, categoria, nome, descricao, imagem, banner);
-	// 		if (cursoDAO.inserirCurso(curso) == true) {
-	// 			response.status(201); // 201 Created
-	// 		} else {
-	// 			response.status(404); // 404 Not found
-	// 		}
-
-			
-	// 	} catch (IOException e) {
-	// 		e.printStackTrace();
-	// 	}
-	// 	response.redirect("/");
-
-	// }
+//	public static void insertTeste(Request request, Response response) {
+//		File imagemx = new File("/home/tiago/Documentos/img_curso.jpg");
+//
+//		try {
+//			FileInputStream inputStream = new FileInputStream(imagemx);
+//            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+//
+//            // Lê os bytes da imagem e escreve no ByteArrayOutputStream
+//            int bytesRead;
+//            byte[] buffer = new byte[1024];
+//            while ((bytesRead = inputStream.read(buffer)) != -1) {
+//                outputStream.write(buffer, 0, bytesRead);
+//            }
+//
+//            // Obtém o array de bytes da imagem
+//            byte[] imagemBytes = outputStream.toByteArray();
+//
+//            // Agora, imagemBytes contém os bytes da imagem no formato BLOB
+//            
+//            // Fecha os streams
+//            inputStream.close();
+//            outputStream.close();
+//
+//			// Agora, a variável imagemBytes contém os bytes da imagem
+//
+//			int id_curso = 0;
+//			double preco = 120.99;
+//			int id_usuario = 0;
+//			String categoria = "categoria-teste";
+//			String nome = "nome-teste";
+//			String descricao = "descricao-teste";
+//			byte[] imagem = imagemBytes;
+//			byte[] banner = imagemBytes;
+//
+//			Curso curso = new Curso(id_curso, preco, id_usuario, categoria, nome, descricao, imagem, banner);
+//			if (cursoDAO.inserirCurso(curso) == true) {
+//				response.status(201); // 201 Created
+//			} else {
+//				response.status(404); // 404 Not found
+//			}
+//
+//			
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//
+//
+//	}
 }
