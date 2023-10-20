@@ -4,13 +4,15 @@ public class Aula {
     private int idAula;
     private int idCurso;
     private String titulo;
-    private String thumbnail;
+    private byte[] thumbnail;
+    private String link;
 
-    public Aula(int idAula, int idCurso, String titulo, String thumbnail) {
+    public Aula(int idAula, int idCurso, String titulo, byte[] thumbnail, String link) {
         this.idAula = idAula;
         this.idCurso = idCurso;
         this.titulo = titulo;
         this.thumbnail = thumbnail;
+        this.link = link;
     }
 
     public Aula() {
@@ -40,11 +42,24 @@ public class Aula {
         this.titulo = titulo;
     }
 
-    public String getThumbnail() {
+    public byte[] getThumbnail() {
         return thumbnail;
     }
 
-    public void setThumbnail(String thumbnail) {
+    public void setThumbnail(byte[] thumbnail) {
         this.thumbnail = thumbnail;
     }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+    
+
+    public String convertThumbnailBase64() {
+		return java.util.Base64.getEncoder().encodeToString(this.thumbnail);
+	}
 }

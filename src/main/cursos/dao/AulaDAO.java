@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -65,7 +66,8 @@ public class AulaDAO {
 
                 for (int i = 0; rs.next(); i++) {
                     aulas[i] = new Aula(rs.getInt("id_aula"), rs.getInt("id_curso"),
-                            rs.getString("titulo"), rs.getString("thumbnail"));
+                            rs.getString("titulo"), rs.getBytes("thumbnail"), 
+                            rs.getString("link"));
                 }
             }
             st.close();
@@ -78,12 +80,15 @@ public class AulaDAO {
     public boolean inserirAula(Aula aula) {
         boolean status = false;
         try {
-            Statement st = conexao.createStatement();
-            st.executeUpdate("INSERT INTO aulas (id_aula, id_curso, titulo, thumbnail) "
+            String query = "INSERT INTO aulas (id_aula, id_curso, titulo, thumbnail) "
                     + "VALUES (" + aula.getIdAula() + ", '" + aula.getIdCurso() + "', '"
-                    + aula.getTitulo() + "', '" + aula.getThumbnail() + "');");
-            st.close();
-            status = true;
+                    + aula.getTitulo() + "', ?, '" + aula.getLink() + "');";
+			
+			PreparedStatement st = conexao.prepareStatement(query);
+			st.setBytes(1, aula.getThumbnail());
+			st.executeUpdate();
+			st.close();
+			status = true;
         } catch (SQLException u) {
             throw new RuntimeException(u);
         }
@@ -109,7 +114,7 @@ public class AulaDAO {
             Statement st = conexao.createStatement();
             String sql = "UPDATE aulas SET id_aula = '" + aula.getIdAula() + "', id_curso = '"
                     + aula.getIdCurso() + "', titulo = '" + aula.getTitulo() + "', thumbnail = '"
-                    + aula.getThumbnail() + "'" + " WHERE id_aula = " + id_aulaAlvo;
+                    + aula.getThumbnail() + "', link = '" + aula.getLink() + "' WHERE id_aula = " + id_aulaAlvo;
             st.executeUpdate(sql);
             st.close();
             status = true;

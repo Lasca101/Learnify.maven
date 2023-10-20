@@ -8,10 +8,7 @@ import service.*;
 
 public class Aplicacao {
 	
-	private static CursoService cursoService = new CursoService();
-	private static AulaService aulaService = new AulaService();
-	
-    public static void main(String[] args) {
+	public static void main(String[] args) {
     	VelocityTemplateEngine engine = new VelocityTemplateEngine();
         staticFiles.location("/public");
     	
@@ -19,7 +16,5 @@ public class Aplicacao {
         
         get("/home", (request, response) -> CursoService.mostrarCursos(request, response), engine);
         get("/aula", (request, response) -> AulaService.mostrarAulas(request, response), engine);
-
-
     }
 }
