@@ -1,6 +1,13 @@
 {
     "configurations": [
         {
+            "type": "java",
+            "name": "Aplicacao",
+            "request": "launch",
+            "mainClass": "app.Aplicacao",
+            "projectName": "learnify.demo"
+        },
+        {
             "name": "Setup Velocity",
             "type": "velocity",
             "request": "launch",

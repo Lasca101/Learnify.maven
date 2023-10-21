@@ -17,5 +17,7 @@ public class Aplicacao {
         get("/home", (request, response) -> CursoService.mostrarCursos(request, response), engine);
         get("/aula", (request, response) -> AulaService.mostrarVideoAula(request, response), engine);
         get("/curso", (request, response) -> AulaService.mostrarAulas(request, response), engine);
+
+        // get("/add", (request, response) -> AulaService.insertTeste(request, response));
     }
 }

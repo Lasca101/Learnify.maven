@@ -80,7 +80,7 @@ public class AulaDAO {
     public boolean inserirAula(Aula aula) {
         boolean status = false;
         try {
-            String query = "INSERT INTO aulas (id_aula, id_curso, titulo, thumbnail) "
+            String query = "INSERT INTO aulas (id_aula, id_curso, titulo, thumbnail, link) "
                     + "VALUES (" + aula.getIdAula() + ", '" + aula.getIdCurso() + "', '"
                     + aula.getTitulo() + "', ?, '" + aula.getLink() + "');";
 			

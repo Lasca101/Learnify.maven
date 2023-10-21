@@ -37,8 +37,8 @@
             <nav class="barra-home">
                 <div id="header">
                     <ul class="menu">
-                        <li id="loginLi"><a href="/login/login.html" class="itens-barra-home">Login/Cadastro</a></li>
-                        <li id="accountLi" style="display: none;"><a id="accountLink" href='/pagina-montar-curso/montar_curso.html'><i class="fas fa-user"></i> Monte seu Curso</a></li>
+                        <li id="loginLi"><a href="/login" class="itens-barra-home">Login/Cadastro</a></li>
+                        <li id="accountLi" style="display: none;"><a id="accountLink" href='/montar-curso'><i class="fas fa-user"></i> Monte seu Curso</a></li>
                         <li id="logoutLi" style="display: none;"><button id="logoutButton"
                                 onclick="logout()">Logout</button></li>
                     </ul>
@@ -46,7 +46,7 @@
             </nav>
 
             <nav class="div-logo">
-                <a href="/homepage/homepage.html"><img class="logo" src="/images/logo.png" alt="logo"></a>
+                <a href="/home"><img class="logo" src="/images/logo.png" alt="logo"></a>
             </nav>
         </div>
     </header>
