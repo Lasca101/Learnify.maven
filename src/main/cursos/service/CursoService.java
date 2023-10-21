@@ -23,6 +23,7 @@ public class CursoService {
 //		  insertTeste(req, res);
 		HashMap<String, Object> model = new HashMap<>();
 		Curso[] cursos = cursoDAO.getCursos();
+		
 
 		try {
 			model.put("cursos", cursos);
@@ -119,52 +120,52 @@ public class CursoService {
 	// 	return mostrarClientes(request, response);
 	// }
 
-	// public static void insertTeste(Request request, Response response) {
-	// 	File imagemx = new File("/home/tiago/Documentos/img_curso.jpg");
+	public static void insertTeste(Request request, Response response) {
+		File imagemx = new File("/home/tiago/Documentos/img_curso.jpg");
 
-	// 	try {
-	// 		FileInputStream inputStream = new FileInputStream(imagemx);
-    //       ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+		try {
+			FileInputStream inputStream = new FileInputStream(imagemx);
+          ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
-    //       // Lê os bytes da imagem e escreve no ByteArrayOutputStream
-    //       int bytesRead;
-    //       byte[] buffer = new byte[1024];
-    //       while ((bytesRead = inputStream.read(buffer)) != -1) {
-    //           outputStream.write(buffer, 0, bytesRead);
-    //       }
+          // Lê os bytes da imagem e escreve no ByteArrayOutputStream
+          int bytesRead;
+          byte[] buffer = new byte[1024];
+          while ((bytesRead = inputStream.read(buffer)) != -1) {
+              outputStream.write(buffer, 0, bytesRead);
+          }
 
-    //       // Obtém o array de bytes da imagem
-    //       byte[] imagemBytes = outputStream.toByteArray();
+          // Obtém o array de bytes da imagem
+          byte[] imagemBytes = outputStream.toByteArray();
 
-    //       // Agora, imagemBytes contém os bytes da imagem no formato BLOB
+          // Agora, imagemBytes contém os bytes da imagem no formato BLOB
           
-    //       // Fecha os streams
-    //       inputStream.close();
-    //       outputStream.close();
+          // Fecha os streams
+          inputStream.close();
+          outputStream.close();
 
-	// 		// Agora, a variável imagemBytes contém os bytes da imagem
+			// Agora, a variável imagemBytes contém os bytes da imagem
 
-	// 		int id_curso = 0;
-	// 		double preco = 120.99;
-	// 		int id_usuario = 0;
-	// 		String categoria = "categoria-teste";
-	// 		String nome = "nome-teste";
-	// 		String descricao = "descricao-teste";
-	// 		byte[] imagem = imagemBytes;
-	// 		byte[] banner = imagemBytes;
+			int id_curso = 0;
+			double preco = 120.99;
+			int id_usuario = 0;
+			String categoria = "categoria-teste";
+			String nome = "nome-teste";
+			String descricao = "descricao-teste";
+			byte[] imagem = imagemBytes;
+			byte[] banner = imagemBytes;
 
-	// 		Curso curso = new Curso(id_curso, preco, id_usuario, categoria, nome, descricao, imagem, banner);
-	// 		if (cursoDAO.inserirCurso(curso) == true) {
-	// 			response.status(201); // 201 Created
-	// 		} else {
-	// 			response.status(404); // 404 Not found
-	// 		}
+			Curso curso = new Curso(id_curso, preco, id_usuario, categoria, nome, descricao, imagem, banner);
+			if (cursoDAO.inserirCurso(curso) == true) {
+				response.status(201); // 201 Created
+			} else {
+				response.status(404); // 404 Not found
+			}
 
 			
-	// 	} catch (IOException e) {
-	// 		e.printStackTrace();
-	// 	}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 
-	// }
+	}
 }
