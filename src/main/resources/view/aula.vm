@@ -69,10 +69,9 @@
 
     <main>
         <nav id="div-aula">
-            #foreach($aula in $aulas)
                 <div>
                     <a href="/curso?id=$aula.getIdCurso()" class="ancora-titulo-curso">
-                        <h3>$aula.getNome()</h3>
+                        <h3>$curso.getNome()</h3>
                     </a>
                 </div>
 
@@ -85,7 +84,6 @@
                     <button type="button" id="botao-voltar" class="btn btn-secondary">Aula Anterior</button>
                     <button type="button" id="botao-avancar" class="btn btn-success">Próxima Aula</button>
                 </div>
-            #end
         </nav>
 
         <section id="secao-perguntas">

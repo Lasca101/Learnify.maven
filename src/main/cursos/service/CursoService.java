@@ -34,7 +34,7 @@ public class CursoService {
 	}
 
 	// public Object insertCurso(Request request, Response response) {
-	// 	File imagemx = new File("/home/tiago/Documentos/img_curso.jpg");
+	// 	File imagemx = new File("/home/tiago/Documentos/img_curso.jpg");                          
 
 	// 	try {
 	// 		FileInputStream inputStream = new FileInputStream(imagemx);
