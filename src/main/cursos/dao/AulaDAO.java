@@ -8,57 +8,19 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 
 import model.Aula;
+import dao.DAO;
 
 public class AulaDAO {
-    private Connection conexao;
+    private DAO conexao;
 
-    public AulaDAO() {
-        conexao = null;
-        conectar();
-    }
-
-    public boolean conectar() {
-        String driverName = "org.postgresql.Driver";
-        String serverName = "paulopuc.postgres.database.azure.com";
-        String mydatabase = "postgres";
-        int porta = 5432;
-        String url = "jdbc:postgresql://" + serverName + ":" + porta + "/" + mydatabase;
-        String username = "paulo";
-        String password = "Ph09351234";
-        boolean status = false;
-
-        try {
-            Class.forName(driverName);
-            conexao = DriverManager.getConnection(url, username, password);
-            status = (conexao == null);
-            System.out.println("Conexão efetuada com o postgres!");
-        } catch (ClassNotFoundException e) {
-            System.err.println("Conexão NÃO efetuada com o postgres -- Driver não encontrado -- " + e.getMessage());
-        } catch (SQLException e) {
-            System.err.println("Conexão NÃO efetuada com o postgres -- " + e.getMessage());
-        }
-
-        return status;
-    }
-
-    public boolean close() {
-        boolean status = false;
-
-        try {
-            conexao.close();
-            status = true;
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        }
-        return status;
-    }
-
+	public AulaDAO() {
+	}
     public Aula[] getAulas() {
+        conexao = new DAO();
         Aula[] aulas = null;
-
+        
         try {
-            Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet rs = st.executeQuery("SELECT * FROM aulas");
+            ResultSet rs = conexao.executeQuery("SELECT * FROM aulas");
             if (rs.next()) {
                 rs.last();
                 aulas = new Aula[rs.getRow()];
@@ -70,13 +32,14 @@ public class AulaDAO {
                             rs.getString("link"));
                 }
             }
-            st.close();
+            conexao.closeStatement();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+        conexao.close();
         return aulas;
     }
-
+    // arrumar conexao
     public boolean inserirAula(Aula aula) {
         boolean status = false;
         try {
