@@ -42,6 +42,14 @@ public class DAO {
         stmt = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         return stmt;
     }
+    public PreparedStatement prepareStatement(String sql) throws SQLException {
+        createStatement();
+        return conexao.prepareStatement(sql);
+    }
+    
+    public int executeUpdate(PreparedStatement preparedStatement) throws SQLException {
+        return preparedStatement.executeUpdate();
+    }
 
     public ResultSet executeQuery(String sql) throws SQLException {
         createStatement();
