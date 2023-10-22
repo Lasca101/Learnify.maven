@@ -29,30 +29,31 @@ public class CursoDAO {
 												rs.getBytes("imagem"), rs.getBytes("banner"));
 	             }
 	          }
-	          conexao.close();
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
+		conexao.close();
 		return curso;
 	}
-	// ARRUMAR CONEXAO
+
 	public boolean inserirCurso(Curso curso) {
 		boolean status = false;
+		conexao = new DAO();
 		try {  
 			String query = "INSERT INTO cursos (id_curso, preco, id_usuario, categoria, nome, descricao, imagem, banner) "
 				       + "VALUES ("+curso.getId_curso()+ ", '" + curso.getPreco() + "', '"  
 				       + curso.getId_usuario() + "', '" + curso.getCategoria() + "', '"
 					   + curso.getNome() + "', '" + curso.getDescricao() + "', ?, ?);";
-			
 			PreparedStatement st = conexao.prepareStatement(query);
 			st.setBytes(1, curso.getImagem());
 			st.setBytes(2, curso.getBanner());
-			st.executeUpdate();
+			conexao.executeUpdate(st);
 			st.close();
 			status = true;
 		} catch (SQLException u) {  
 			throw new RuntimeException(u);
 		}
+		conexao.close();
 		return status;
 	}
 	
