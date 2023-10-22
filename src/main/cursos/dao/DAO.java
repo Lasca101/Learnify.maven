@@ -48,10 +48,12 @@ public class DAO {
     }
     
     public int executeUpdate(PreparedStatement preparedStatement) throws SQLException {
+        // Func para CREATE, INSERT E DELETE
         return preparedStatement.executeUpdate();
     }
 
     public ResultSet executeQuery(String sql) throws SQLException {
+        // Func apenas para READ
         createStatement();
         return stmt.executeQuery(sql);
     }
