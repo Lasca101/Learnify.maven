@@ -1,0 +1,297 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+}
+
+header {
+    background-color: black;
+    color: white;
+}
+
+main {
+    background-color: lightgray;
+    padding-bottom: 100px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+
+
+
+
+
+
+/* classes */
+
+/* cabecalho */
+#cabecalho {
+    display: grid;
+    grid-template-columns: (1fr,2fr,2fr);
+}
+
+.barra-home {
+    grid-column: 3;
+    grid-row: 1;
+    margin-left: 25%;
+    margin-top: 30px;
+    display: flex;
+}
+
+.itens-barra-home {
+    text-decoration: none;
+    color: #009f32;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu li {
+    list-style: none;
+    margin-left: 30px;
+    font-size: 18px;
+  }
+.logo {
+    margin-bottom: 20px;
+    width: 100px;
+    height: 70px;
+}
+
+.div-logo {
+    margin-top: 20px;
+    grid-row: 1/3;
+    grid-column: 1;
+    margin-left: 50%;
+}
+
+#logoutButton {
+    background-color: #009f32; /* Defina a cor desejada para o botão de logout */
+    color: #fff; /* Defina a cor do texto no botão de logout */
+    font-size: 18px; /* Defina o tamanho da fonte do botão de logout */
+    padding: 10px 20px; /* Ajuste o preenchimento interno do botão de logout */
+    vertical-align: middle;
+    
+  }
+  
+  #accountLink {
+    color: #009f32; /* Defina a cor desejada para o link "Minha Conta" */
+    margin-top: 400%;
+    font-size: 20px; 
+    text-decoration: none; /* Remova a linha de baixo do link */
+    margin-right: 10px; 
+    vertical-align: middle;
+    padding-top: 10px;
+    margin-bottom: 0px
+  }
+  
+  #loginLi  {
+    margin-right: 10px; /* Ajuste a margem direita para alinhar com os outros elementos */
+    vertical-align: middle;
+    margin-top: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    
+  }
+  
+/* fim cabecalho */
+
+#div-inserir-dados {
+    padding-top: 2%;
+    margin-left: 5%;
+}
+
+#div-nome-categoria {
+    display: flex;
+}
+
+#inserir-categoria {
+    margin-left: 5%;
+}
+
+#div-inserir-descricao {
+    margin-top: 3%;
+    max-width: 95%;
+}
+
+.inserir-dados {
+    max-width: 45%;
+    margin-top: 1%;
+}
+
+#div-inserir-banner {
+max-width: 90%;
+margin-left: 5%;
+padding-top: 3%;
+text-align: center;
+}
+
+#label-banner {
+    display: flex;
+    justify-content: center;
+}
+
+#input-banner {
+
+}
+
+#div-inserir-imagem {
+    max-width: 90%;
+    margin-left: 5%;
+    margin-top: 3%;
+    text-align: center;
+}
+
+#continuar-cadastro {
+    width: 10%;
+    margin-left: 45%;
+    margin-top: 4%;
+}
+
+
+
+
+#div-inserir-img-link {
+    padding-top: 2%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3%;
+    align-items: stretch;
+}
+
+.inserir-aula {
+    flex: 1 1 25%;
+    max-width: 25%;
+    padding-top: 2%;
+}
+
+.div-inserir-img {
+    
+}
+
+.div-inserir-link {
+    
+}
+
+.input-link {
+
+}
+
+#div-inserir-img-link h3 {
+    text-align: center;
+}
+
+#div-botao-finalizar {
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+#finalizar-curso {
+    width: 10%;
+}
+
+
+
+#div-tutorial {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    z-index: 99;
+    display: none;
+    width: 100%;
+    height: 0;
+}
+
+#close-tutorial {
+    z-index: 999;
+    position: absolute;
+    top: 10%;
+    left: 67.5%;
+    cursor: pointer;
+}
+
+#imagem-tutorial {
+    max-width: 40%;
+    position: absolute;
+    top: 7%;
+    left: 30%;
+}
+
+
+/* footer */
+.redes-sociais-rodape {
+    grid-column: 1;
+    margin-left: 45%;
+}
+
+.itens-rodape {
+    margin-top: 5%;
+    width: fit-content;
+    font-size: 14px;
+}
+
+.links-rodape {
+    grid-column: 2;
+    margin-left: 5%;
+}
+
+.copyright-rodape {
+    grid-column: 1/3;
+    width: fit-content;
+    margin-left: 45%;
+    font-size: 10px;
+    margin-top: 5%;
+}
+
+.fa-brands {
+    margin-left: 5%;
+    margin-top: 20%;
+}
+
+.conteudo-itens-rodape {
+    margin-top: 4%;
+}
+
+.texto-itens-rodape {
+    text-decoration: none;
+    color: white;
+    display: flex;
+}
+
+.ancoras {
+    text-decoration: none;
+    color: white;
+    
+}
+
+.links-politicas a {
+    margin-left: 10%;
+}
+
+.links-politicas a :first-child {
+    width: max-content;
+}
+
+.links-politicas {
+    display: flex;
+    margin-top: 5%;
+}
+
+.titulo-links {
+    text-align: center;
+    width: 300px;
+    
+}
+    /* fim footer */

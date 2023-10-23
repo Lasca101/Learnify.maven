@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "learnify-402912",
+  "private_key_id": "dc44d60277dacc45826165eb505c70b63585d37d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCWXkKcMe/qG+4a\nP8PkRWJJiWlJ5tDlLy6I5YIWTzT4kNz8mlVtzIrWDKDZsiVX2bsHwi0T4OZ0gkkG\nhq91YsNt/D8sIGN8iak0+jrqeqKoe+tFeYr7lkl/foY+uTC1L8NzOmFs0HQqlhW4\n9BLa74YpbBUydBtEyz4B6Q5QbQb/qryRLGMlB26dWtjQg62k7Pj/Cj2Hx8+VR0aY\n94yBcgyBtzm0cDi41IPr2z1P6s/QSnn4ILY/7xzPDhQeSPnNgM3TWY3pf4wUswVV\ntUX2KXQ2x51yGfdoR6ZnzgMB7Rx8UDWpdfFbEsIb+SEHWRrpGK3c8L33rVkScu4w\n8vQHE1xFAgMBAAECggEAM+aIDjqMSR1n0yaUOiuar7Aep9Pj4V8mLDkva/zd1zfF\nFuk8OGBDwXrtYAaFritoS1bB0V0sniVECF0fnaA/vSw2L8hkHl2ziiYehMVcdFQF\nUl8P0iO+7aMhue+YuMkqKJELhI/0sKhKCiMwiOHoyE5WiKobqWSPXABxoN/o7QCd\nP5nUGmveNafin8gumL4czUWvIyykHE83phn2bn27V4UsPAfJhHavfZiTCD3a2v/P\nSnDSMCMKLcyHaNBiOTOkafcQ4zb21SFgO1fjabjdLXkeIPf0QuU6QeBsYMG7U4Vt\noK9Tnd/VIB76HUzzobqk+D80913hvLtgc05iSEV5JwKBgQDSKGlV7t3QAXO9ualu\n8uX/1op4L1GBmyH+sa7RRg8NvmoPh6L9gOkxDMiA+s+mFNig15ZtxDK7WrQyjWfd\neOAkJX6Bt5TMYmn85o9U48l3VT2knMq3WTv+igtUvcJmphQ8S5I0kbd2luNkkN2S\n11DJOi5/uWlfOCy4FcCdRNQ6YwKBgQC3KxaQeI4Y+cFE9IqC3A0Z3Ecz+mbo91/3\nbdr0WDcgRSpvZOgDSrQUWLQmp1aCV3SmyooslkWknjjmiTP2ljwXa6URAGlmEazi\nyP5sxdhaSgKSfyx1ak6rKf2ptYYle8dn06JJbx01gizcMtyZgdWrZQ+sO+QBVnB0\nzpNcJ8I7NwKBgQCtayuA/duMCaa4qLxoEYg51Y/uHR3lFV64DWd0yZsifD6JEiQt\njHLhRustg8pWAl3AXCaF7aDveam5DXboCxbqvQXnhNYE0jEjwB4GrvFQx8ZWUAv3\nwGsBYGh5RR1mFyYbm0DKoHQEJ/78vY4Z3hOL+bblLtsE+BXu0gRfwqxegQKBgQCe\nxNuXONg67+pGAg455dH5U4XomSkw0JQ/ndqHqBuIfkuNKRMvH0a+yDDHvI7xBiuY\nE8H3af5N9dPuiIkhOhI2XtlCxm+VyMZqAbz/vfKOOM7H+zInSJGOLiSxQSZZQVSU\nO87VBlp0MjT+XZv396GlIkGWkodNXYa2yQTUgaYLuwKBgDu37yLNHXcw3Q3t5xy7\n89bjXyzvfyJ29vCTpERXQhER9EfqFujM/T0hyQarLKcF296FeJoiTb0WUHK95INw\nh6By1Y6lmOuIvkZnj7gZNNaJTE9FbciIb7IdcgdgtPG4pdIF4BZUfMlsjiplPhNi\ndCSq6D/qxl5f6Yx8A11OCdgL\n-----END PRIVATE KEY-----\n",
+  "client_email": "googledrive@learnify-402912.iam.gserviceaccount.com",
+  "client_id": "117689058769934072551",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/googledrive%40learnify-402912.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

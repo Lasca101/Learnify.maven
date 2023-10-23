@@ -26,7 +26,15 @@ public class AulaService {
     public static ModelAndView mostrarVideoAula(Request req, Response res) {
         HashMap<String, Object> model = new HashMap<>();
         Aula[] aulas = aulaDAO.getAulas();
-        Aula aulaX = aulas[Integer.parseInt(req.queryParams("id_aula"))];
+        Aula aulaX = null;
+        int i = 0;
+        while(aulas[i] != null){
+            if(aulas[i].getIdAula() == Integer.parseInt(req.queryParams("id_aula"))){
+                aulaX = aulas[i];
+                break;
+            }
+            i++;
+        }
         Curso cursos[] = cursoDAO.getCursos();
         Curso cursoX = cursos[aulaX.getIdCurso()];
 
