@@ -13,10 +13,11 @@ public class Aplicacao {
     	VelocityTemplateEngine engine = new VelocityTemplateEngine();
         staticFiles.location("/public");
     	
-        port(6789);
+        port(6781);
         
         get("/home", (request, response) -> CursoService.mostrarCursos(request, response), engine);
         get("/aula", (request, response) -> AulaService.mostrarVideoAula(request, response), engine);
+        get("/aula", (request, response) -> PerguntasService.mostrarPerguntas(request, response), engine);
         get("/curso", (request, response) -> AulaService.mostrarAulas(request, response), engine);
 
         // get("/logout", (request, response) -> {
