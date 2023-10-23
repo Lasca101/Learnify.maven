@@ -95,6 +95,14 @@
                         placeholder="Faça sua pergunta">
                     <button type="button" id="botao-enviar-pergunta" class="btn btn-primary">Enviar</button>
                 </form>
+
+            <nav id="perguntas-da-aula">
+                #foreach($pergunta in $perguntas)
+                <div id="descricao">
+                <h1>$pergunta.getDescricao()</h1>
+                </div>
+                #end
+                </nav>
             </div>
 
             <div id="tela"></div>
