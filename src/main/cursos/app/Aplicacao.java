@@ -18,6 +18,8 @@ public class Aplicacao {
         get("/home", (request, response) -> CursoService.mostrarCursos(request, response), engine);
         get("/aula", (request, response) -> AulaService.mostrarVideoAula(request, response), engine);
         get("/curso", (request, response) -> AulaService.mostrarAulas(request, response), engine);
+        get("/montar-curso", (request, response) -> CursoService.mostrarMontarCurso(request, response), engine);
+        // post("/montar-curso", (request, response) -> CursoService.inserirCurso(request, response), engine);
 
         // get("/logout", (request, response) -> {
         //     request.session().removeAttribute("usuario_id");

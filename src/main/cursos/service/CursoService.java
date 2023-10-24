@@ -34,60 +34,57 @@ public class CursoService {
 		return new ModelAndView(model, "/view/home.vm");
 	}
 
-	// public Object insertCurso(Request request, Response response) {
-	// 	File imagemx = new File("/home/tiago/Documentos/img_curso.jpg");                          
+	public static ModelAndView mostrarMontarCurso(Request req, Response res) {
+		HashMap<String, Object> model = new HashMap<>();
+
+		return new ModelAndView(model, "/view/montar_curso.vm");
+	}
+
+	// public Object inserirCurso(Request request, Response response) {
+	// 	// File imagemx = new File("/home/tiago/Documentos/img_curso.jpg");                          
 
 	// 	try {
-	// 		FileInputStream inputStream = new FileInputStream(imagemx);
-	// 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+	// 		// FileInputStream inputStream = new FileInputStream(imagemx);
+	// 		// ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
-	// 		// Lê os bytes da imagem e escreve no ByteArrayOutputStream
-	// 		int bytesRead;
-	// 		byte[] buffer = new byte[1024];
-	// 		while ((bytesRead = inputStream.read(buffer)) != -1) {
-	// 			outputStream.write(buffer, 0, bytesRead);
-	// 		}
+	// 		// // Lê os bytes da imagem e escreve no ByteArrayOutputStream
+	// 		// int bytesRead;
+	// 		// byte[] buffer = new byte[1024];
+	// 		// while ((bytesRead = inputStream.read(buffer)) != -1) {
+	// 		// 	outputStream.write(buffer, 0, bytesRead);
+	// 		// }
 
-	// 		// Obtém o array de bytes da imagem
-	// 		byte[] imagemBytes = outputStream.toByteArray();
+	// 		// // Obtém o array de bytes da imagem
+	// 		// byte[] imagemBytes = outputStream.toByteArray();
 
-	// 		// Agora, imagemBytes contém os bytes da imagem no formato BLOB
+	// 		// // Agora, imagemBytes contém os bytes da imagem no formato BLOB
 			
-	// 		// Fecha os streams
-	// 		inputStream.close();
-	// 		outputStream.close();
+	// 		// // Fecha os streams
+	// 		// inputStream.close();
+	// 		// outputStream.close();
 
 
 	// 		Curso[] cursos = cursoDAO.getCursos();
-	// 		int id_usuario = ;
+	// 		int id_usuario = 0;
 	// 		int id_curso = cursos.length;
-	// 		double preco = Double.parseDouble(request.queryParams("preco"));
+	// 		double preco = 156.33;
 	// 		String categoria = request.queryParams("categoria");
-	// 		String nome = request.queryParams("nome");
+	// 		String nome = request.queryParams("nome_curso");
 	// 		String descricao = request.queryParams("descricao");
 	// 		String imagem = request.queryParams("imagem");
 	// 		String banner = request.queryParams("banner");
 
-
-	// 		Curso[] clientes = cursoDAO.getCliente();
-	// 		int id = clientes.length;
-	// 		String nome = request.queryParams("nome");
-	// 		int idade = Integer.parseInt(request.queryParams("idade"));
-	// 		String carro = request.queryParams("carro");
-
-	// 		Curso cliente = new Curso(id, nome, idade, carro);
-	// 		if (cursoDAO.inserirCliente(cliente) == true) {
+	// 		Curso curso = new Curso(id_curso, preco, id_usuario, categoria, nome, descricao, imagem, banner);
+	// 		if (cursoDAO.inserirCurso(curso) == true) {
 	// 			response.status(201); // 201 Created
 	// 		} else {
 	// 			response.status(404); // 404 Not found
 	// 		}
 
-	// 		response.redirect("/");
-	// 		return mostrarClientes(request, response);
-
 	// 	} catch (IOException e) {
 	// 		e.printStackTrace();
 	// 	}
+	// 	return 0;
 	// }
 
 	// public Object edit(Request request, Response response) {
