@@ -11,6 +11,8 @@ import dao.AulaDAO;
 import dao.CursoDAO;
 import model.Aula;
 import model.Curso;
+import model.Perguntas;
+import service.PerguntasService;
 import spark.Request;
 import spark.Response;
 import spark.ModelAndView;
@@ -38,9 +40,12 @@ public class AulaService {
         Curso cursos[] = cursoDAO.getCursos();
         Curso cursoX = cursos[aulaX.getIdCurso()];
 
+        ArrayList<Perguntas> perguntasX = new ArrayList<Perguntas>();
+        perguntasX = PerguntasService.mostrarPerguntas(req, res);
         try {
             model.put("aula", aulaX);
             model.put("curso", cursoX);
+            model.put("perguntas", perguntasX);
         } catch (Exception e) {
             e.printStackTrace();
         }

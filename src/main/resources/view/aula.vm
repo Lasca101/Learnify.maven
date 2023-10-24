@@ -95,17 +95,33 @@
                         placeholder="Faça sua pergunta">
                     <button type="button" id="botao-enviar-pergunta" class="btn btn-primary">Enviar</button>
                 </form>
-
-            <nav id="perguntas-da-aula">
+            </div>
+            
+            <div id="tela">
                 #foreach($pergunta in $perguntas)
-                <div id="descricao">
-                <h1>$pergunta.getDescricao()</h1>
+                <div class="exibicao-pergunta-respostas">
+                    <div class="pergunta-com-botao">
+                        <h6 class="perguntas">$pergunta.getDescricao()</h6>
+
+                        <button type="button" id="$pergunta.getId_pergunta()" class="botao-responder btn btn-secondary"
+                        style="--bs-btn-padding-y: .20rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .60rem;">
+                        Responder
+                        </button>
+                    </div>
+
+                    <button class="botao-exibir-respostas btn btn-primary btn-sm" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseExample$pergunta.getId_pergunta()" aria-expanded="false"
+                        aria-controls="collapseExample">
+                        Respostas
+                    </button>
+                    <div class="collapse" id="collapseExample$pergunta.getId_pergunta()">
+                        <div class="card card-body">
+                            
+                        </div>
+                    </div>
                 </div>
                 #end
-                </nav>
             </div>
-
-            <div id="tela"></div>
         </section>
     </main>
 

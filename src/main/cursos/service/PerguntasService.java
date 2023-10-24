@@ -15,8 +15,7 @@ public class PerguntasService {
     public PerguntasService() {
     }
 
-    public static ModelAndView mostrarPerguntas(Request req, Response res) {
-        HashMap<String, Object> model = new HashMap<>();
+    public static ArrayList<Perguntas> mostrarPerguntas(Request req, Response res) {
         ArrayList<Perguntas> perguntasX = new ArrayList<Perguntas>();
 
         int idAula = Integer.parseInt(req.queryParams("id_aula"));
@@ -28,12 +27,6 @@ public class PerguntasService {
             }
         }
 
-        try {
-            model.put("perguntas", perguntasX);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return new ModelAndView(model, "/view/aula.vm");
+        return perguntasX;
     }
 }
